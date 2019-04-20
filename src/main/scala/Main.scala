@@ -33,12 +33,11 @@ object Main {
     val pageCountTransform = new PageCountTransform
     val page_count_result = pageCountTransform.apply(page_set_result)
 
-    page_set_result.show(100, false)
-    page_count_result.show(100, false)
-
+    // Write to files
     writeToFile(page_set_result, args(1))
     writeToFile(page_count_result, args(2))
 
+    // Write to redis
     writeToRedis(page_count_result)
 
   }
